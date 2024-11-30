@@ -1,0 +1,26 @@
+
+
+**Exercise 3 (1 point)**
+
+Before you start, you should:
+Read sections 3.14 and 3.15 of the Java Guide, which discuss generic classes and Java collections. Also, read section 4.2 of the Java Guide, which talks about the Stream API and lambda expressions. Additionally, watch the videos "Polymorphism" and "Functional Programming in Java" on the UOCoders site.
+
+Next, open the PAC4Ex3 project in IntelliJ. In the `edu.uoc.pac4` package of the `/src/test/java` directory, you will find the file with the unit tests we provide. Copy the `edu.uoc.pac4` package from the `/src/main/java` directory of Exercise 2 of this PEC4 once you have completed it.
+
+In this exercise, we will work with the Java Stream API and lambda expressions. Specifically, three methods of the `DSLab` class will be implemented to obtain relevant information from the application or to offer a mechanism for certain functionalities. Therefore, it is mandatory to use Stream and lambda expressions in the development of the three methods in this exercise. If not used in any method, it will not be evaluated and will be graded with a 0.
+
+Since we will be working with the `activities` attribute of the `DSLab` class, all method bodies to be implemented should start as follows:
+```java
+activities.values().stream()
+```
+
+**Class DSLab**
+
+- **getActivityNames**: This method should return a list (List) of strings (String) with the names of all activities registered in the application. That is, it should return the `name` of all activities (`Activity`).
+
+- **testGetProgrammingActivitiesOrdered**: This method should return a list (List) of all programming activities (`ActivityProgramming`) ordered alphabetically by their name (`name`). That is, the list returned should not contain any `ActivityQuiz` type activities; all should be instances of the `ActivityProgramming` class.
+
+- **testGetExecutionsCountByActivityType**: This method returns a map (Map) where the key corresponds to the name of the class whose executions are being counted (String), and the value is the total number of executions of all instances of that class (Long). Therefore, all instantiable class types that have `Activity` as a parent must be considered, and for each of them, they should be grouped under a single key. This implies that, at most, the map (Map) can have 4 keys: `ActivityQuiz`, `ActivityProgrammingCpp`, `ActivityProgrammingJava`, `ActivityProgrammingPython`.
+
+(1 pt.: 0.25 pts. for `testGetActivityNames`; 0.25 pts. for `testGetProgrammingActivitiesOrdered`; 0.5 pts. for `testGetExecutionsCountByActivityType`)
+
