@@ -10,7 +10,11 @@ import edu.uoc.pac4.user.User;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * The DSLab class represents a laboratory with activities, users, and status.
+ */
 public class DSLab {
+    
     private String name;
     private String description;
     private int versionMajor;
@@ -24,6 +28,18 @@ public class DSLab {
     private List<User> users = new LinkedList<>();
     private List<Evaluable> evaluableActivities = new LinkedList<>();
 
+    /**
+     * Constructs a new DSLab.
+     *
+     * @param name the name of the lab
+     * @param description the description of the lab
+     * @param versionMajor the major version number
+     * @param versionMinor the minor version number
+     * @param versionPatch the patch version number
+     * @param cpu the CPU capacity of the lab
+     * @param university the associated university
+     * @throws DSLabException if any parameter is invalid
+     */
     public DSLab(String name, String description, int versionMajor, int versionMinor, int versionPatch, long cpu, University university) throws DSLabException {
         setName(name);
         setDescription(description);
@@ -187,6 +203,4 @@ public class DSLab {
         return activities.values().stream()
                 .collect(Collectors.groupingBy(activity -> activity.getClass().getSimpleName(), Collectors.summingLong(Activity::getExecutionsCount)));
     }
-
-
 }
